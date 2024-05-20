@@ -28,30 +28,39 @@ object PaletteGenerator {
     }
 
     fun extractColorsFromBitmap(bitmap: Bitmap): Map<String, String> {
+        val maximumColorCount = 10
         return mapOf(
             "vibrant" to parseColorSwatch(
-                color = Palette.from(bitmap).generate().vibrantSwatch
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().vibrantSwatch
             ),
             "darkVibrant" to parseColorSwatch(
-                color = Palette.from(bitmap).generate().darkVibrantSwatch
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().darkVibrantSwatch
             ),
             "onDarkVibrant" to parseBodyColor(
-                color = Palette.from(bitmap).generate().darkVibrantSwatch?.bodyTextColor
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().darkVibrantSwatch?.bodyTextColor
             ),
             "lightVibrant" to parseColorSwatch(
-                color = Palette.from(bitmap).generate().lightVibrantSwatch
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().lightVibrantSwatch
             ),
             "domainSwatch" to parseColorSwatch(
-                color = Palette.from(bitmap).generate().dominantSwatch
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().dominantSwatch
             ),
             "mutedSwatch" to parseColorSwatch(
-                color = Palette.from(bitmap).generate().mutedSwatch
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().mutedSwatch
             ),
             "lightMuted" to parseColorSwatch(
-                color = Palette.from(bitmap).generate().lightMutedSwatch
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().lightMutedSwatch
             ),
             "darkMuted" to parseColorSwatch(
-                color = Palette.from(bitmap).generate().darkMutedSwatch
+                color = Palette.from(bitmap).maximumColorCount(maximumColorCount)
+                    .generate().darkMutedSwatch
             ),
         )
     }
